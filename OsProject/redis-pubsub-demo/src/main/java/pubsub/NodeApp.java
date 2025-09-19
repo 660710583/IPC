@@ -234,7 +234,7 @@ public class NodeApp{
     }
     // --------- Presence helpers ---------๓๓๓๓๓๓๓ 
     static void publishPresenceWithStatus(Jedis j, long leaderPid) { //ส่งข้อความจากช่อง Presence
-        long now = System.currentTimeMillis();
+        // long now = System.currentTimeMillis();
         List<String> members = new ArrayList<>(j.zrevrange(ZSET_MEMBERS, 0, -1));//ดึงข้อมูลจาก ZSET_MEMBERS database เริ่ม 0 ถึง สุดท้าย น้อย→มาก
         String payloadMembers = members.stream().map(m -> { 
             /*
@@ -357,4 +357,4 @@ public class NodeApp{
         try { pool.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS); }
         catch (InterruptedException ignored) {}
     }
-}
+}   
